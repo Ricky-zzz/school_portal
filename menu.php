@@ -49,6 +49,14 @@ require("partials/session.php");
                     </div>
                 </a>
             </div>
+            <div class="col">
+                <a href="views/subject.php" class="text-decoration-none text-dark">
+                    <div class="card text-center shadow-sm p-3">
+                        <i class="bi bi-book fs-2 mb-2"></i>
+                        <h5>Subject</h5>
+                    </div>
+                </a>
+            </div>
 
             <div class="col">
                 <a href="views/list.php" class="text-decoration-none text-dark">
@@ -63,7 +71,7 @@ require("partials/session.php");
                 <a href="views/schedule.php" class="text-decoration-none text-dark">
                     <div class="card text-center shadow-sm p-3">
                         <i class="bi bi-calendar-check-fill fs-2 mb-2"></i>
-                        <h5>Subject</h5>
+                        <h5>Enlist</h5>
                     </div>
                 </a>
             </div>

@@ -82,13 +82,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link <?= ($activePage == 'subject') ? 'active' : 'text-light' ?>" href="subject.php">
+                    <i class="bi bi-book"></i> Subjects
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link <?= ($activePage == 'list') ? 'active' : 'text-light' ?>" href="list.php">
                     <i class="bi bi-list-ul"></i> List
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?= ($activePage == 'schedule') ? 'active' : 'text-light' ?>" href="schedule.php">
-                    <i class="bi bi-calendar-check-fill"></i> Subject
+                    <i class="bi bi-calendar-check-fill"></i> Enlist
                 </a>
             </li>
             <li class="nav-item">
