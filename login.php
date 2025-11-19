@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/zephyr/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center vh-100">
@@ -38,7 +38,10 @@ session_start();
                         </div>
                     </form>
                 </div>
+                <div class="d-flex  justify-content-between">
                 <a href="index.php" class="p-2 mx-3"><small>Student Login</small></a>
+                <a href="login2.php" class="p-2 mx-3"><small>Teacher Login</small></a>
+                </div>
             </div>
         </div>
     </div>

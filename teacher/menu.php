@@ -1,15 +1,18 @@
 <?php
-require("../partials/student.php");
-$student_name = $_SESSION['student_name'] ?? 'Student';
-$student_number = $_SESSION['student_number'] ?? '';
+require("../partials/teacher.php");
+$teacher_name = $_SESSION['teacher_name'] ?? 'Proffesor';
+$teacher_code = $_SESSION['teacher_code'] ?? 'N/A';
+    $_SESSION['subject_id'] = $_POST['subject_id'] ?? null;
+    $_SESSION['subject_code'] = $_POST['subject_code'] ?? null;
+    $_SESSION['subject_name'] = $_POST['subject_name'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Student Menu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/brite/bootstrap.min.css" rel="stylesheet">
+    <title>Teacher Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/simplex/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
@@ -25,30 +28,16 @@ $student_number = $_SESSION['student_number'] ?? '';
 
 
     <div class="menu-container bg-light rounded shadow p-2 mt-5" style="min-width:400px;">
-        <div class="menu-header bg-primary text-white text-center w-100 py-3 rounded-top my-2">
-            <h4 class="fw-bold mb-1"><?= htmlspecialchars(strtoupper($student_name)) ?></h4>
-            <p class="fw-bold mb-0"><?= htmlspecialchars($student_number) ?></p>
+        <div class="menu-header bg-dark text-white text-center w-100 py-3 rounded-top my-2">
+            <h4 class="fw-bold mb-1"><?= htmlspecialchars(strtoupper($teacher_name)) ?></h4>
+            <p class="fw-bold mb-0"><?= htmlspecialchars($teacher_code) ?></p>
         </div>
 
-        <a href="balance.php" class="text-decoration-none">
-            <div class="card menu-card shadow-sm text-center border-info p-3 text-info mb-2">
-                <i class="bi bi-credit-card fs-2 mb-2"></i>
-                <h5><strong>Account Balances</strong>
-                    </h5>
-            </div>
-        </a>
 
-        <a href="view_grade.php" class="text-decoration-none">
+        <a href="semester.php" class="text-decoration-none">
             <div class="card menu-card shadow-sm text-center p-3 border-info mb-2 text-info">
                 <i class="bi bi-journal-text fs-2 mb-2"></i>
-                <h5><strong>Grades</strong> </h5>
-            </div>
-        </a>
-        <a href="enlist.php" class="text-decoration-none">
-            <div class="card menu-card shadow-sm text-center p-3 mb-2 border-info text-info">
-                <i class="bi bi-journal fs-2 mb-2"></i>
-                <h5>
-                    <strong>Enlist</strong></h5>
+                <h5><strong>Grade Students </strong> </h5>
             </div>
         </a>
 
@@ -61,7 +50,7 @@ $student_number = $_SESSION['student_number'] ?? '';
         </a>
 
         <a href="../sql/login_actions.php?logout=y" class="text-decoration-none">
-            <div class="card menu-card shadow-sm text-center p-3 border border-danger text-danger">
+            <div class="card menu-card shadow-sm text-center p-3 border border-primary text-primary">
                 <i class="bi bi-box-arrow-right fs-2 mb-2"></i>
                 <h5>
                     <strong>Logout</strong></h5>

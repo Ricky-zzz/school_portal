@@ -28,14 +28,19 @@ CREATE TABLE IF NOT EXISTS `audit_trail` (
   `action` varchar(255) DEFAULT NULL,
   `action_datetime` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table school.audit_trail: ~3 rows (approximately)
+-- Dumping data for table school.audit_trail: ~8 rows (approximately)
 DELETE FROM `audit_trail`;
 INSERT INTO `audit_trail` (`id`, `user_id`, `module`, `refno`, `action`, `action_datetime`) VALUES
 	(2, 2, 'collections', '000001', 'A', '2025-11-08 16:38:22'),
 	(3, 2, 'collections', '000002', 'A', '2025-11-08 17:21:43'),
-	(4, 2, 'collections', '000001', 'E', '2025-11-09 01:52:37');
+	(4, 2, 'collections', '000001', 'E', '2025-11-09 01:52:37'),
+	(5, 2, 'collections', '000001', 'E', '2025-11-10 22:57:01'),
+	(6, 2, 'collections', '000001', 'D', '2025-11-10 22:58:02'),
+	(7, 2, 'collections', '000003', 'A', '2025-11-12 22:09:09'),
+	(8, 2, 'collections', '000002', 'E', '2025-11-12 22:10:29'),
+	(9, 2, 'collections', '000003', 'D', '2025-11-12 22:10:53');
 
 -- Dumping structure for table school.collections
 CREATE TABLE IF NOT EXISTS `collections` (
@@ -53,13 +58,13 @@ CREATE TABLE IF NOT EXISTS `collections` (
   KEY `or_date` (`or_date`),
   KEY `student_id` (`student_id`),
   KEY `semester_id` (`semester_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table school.collections: ~2 rows (approximately)
+-- Dumping data for table school.collections: ~1 rows (approximately)
 DELETE FROM `collections`;
 INSERT INTO `collections` (`collection_id`, `or_number`, `or_date`, `student_id`, `semester_id`, `cash`, `gcash`, `gcash_refno`, `user_id`) VALUES
-	(3, '000001', '2025-11-08 16:38:22', 1, 1, 0.00, 2000.00, '28282828283', 2),
-	(4, '000002', '2025-11-08 17:21:43', 1, 1, 3000.00, 0.00, NULL, 2);
+	(4, '000002', '2025-11-08 17:21:43', 1, 1, 4000.00, 0.00, NULL, 2),
+	(7, '000003', '2025-11-08 17:21:43', 1, 1, 4000.00, 0.00, NULL, 2);
 
 -- Dumping structure for table school.courses
 CREATE TABLE IF NOT EXISTS `courses` (
@@ -146,18 +151,36 @@ CREATE TABLE IF NOT EXISTS `students_subjects` (
   UNIQUE KEY `unique_enrollment` (`student_id`,`subject_id`,`semester_id`),
   KEY `student_id_idx` (`student_id`),
   KEY `subject_id_idx` (`subject_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table school.students_subjects: ~7 rows (approximately)
+-- Dumping data for table school.students_subjects: ~25 rows (approximately)
 DELETE FROM `students_subjects`;
 INSERT INTO `students_subjects` (`id`, `student_id`, `subject_id`, `semester_id`, `mid`, `fcg`, `created_at`) VALUES
-	(3, 1, 4, 1, 1.00, 1.25, '2025-10-24 15:39:51'),
+	(3, 1, 4, 1, 1.25, 1.25, '2025-10-24 15:39:51'),
 	(4, 1, 6, 1, 1.25, 1.25, '2025-10-24 15:39:51'),
 	(11, 1, 2, 2, 1.25, 1.25, '2025-10-24 15:39:51'),
 	(12, 1, 4, 2, 1.50, 1.75, '2025-10-24 15:39:51'),
 	(13, 1, 8, 2, 1.00, 1.75, '2025-10-24 15:39:51'),
 	(18, 1, 5, 1, 1.75, 1.75, '2025-10-24 15:39:51'),
-	(19, 1, 7, 1, 3.00, 1.25, '2025-10-24 15:39:51');
+	(19, 1, 7, 1, 3.00, 1.25, '2025-10-24 15:39:51'),
+	(21, 2, 1, 1, NULL, NULL, '2025-11-19 22:05:46'),
+	(22, 3, 1, 1, NULL, NULL, '2025-11-19 22:06:25'),
+	(23, 4, 1, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(25, 1, 1, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(26, 5, 1, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(27, 6, 1, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(28, 6, 10, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(29, 6, 10, 2, NULL, NULL, '2025-11-19 22:07:02'),
+	(30, 5, 10, 2, NULL, NULL, '2025-11-19 22:07:02'),
+	(31, 5, 10, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(32, 4, 10, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(33, 4, 10, 2, NULL, NULL, '2025-11-19 22:07:02'),
+	(34, 3, 10, 2, NULL, NULL, '2025-11-19 22:07:02'),
+	(35, 3, 10, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(36, 2, 10, 1, NULL, NULL, '2025-11-19 22:07:02'),
+	(37, 2, 10, 2, NULL, NULL, '2025-11-19 22:07:02'),
+	(38, 1, 10, 2, NULL, NULL, '2025-11-19 22:07:02'),
+	(39, 1, 10, 1, NULL, NULL, '2025-11-19 22:07:02');
 
 -- Dumping structure for table school.subjects
 CREATE TABLE IF NOT EXISTS `subjects` (
@@ -193,24 +216,27 @@ INSERT INTO `subjects` (`subject_id`, `subject_code`, `name`, `days`, `start_tim
 CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int NOT NULL AUTO_INCREMENT,
   `teacher_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `teacher_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` varchar(50) DEFAULT 'lcc1947',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table school.teacher: ~6 rows (approximately)
+-- Dumping data for table school.teacher: ~7 rows (approximately)
 DELETE FROM `teacher`;
-INSERT INTO `teacher` (`id`, `teacher_name`) VALUES
-	(1, 'John Smith'),
-	(2, 'Jade Smith'),
-	(3, 'Allain Sarmiento'),
-	(4, 'Arthur Doyle'),
-	(5, 'Snape'),
-	(6, 'Dumbledore');
+INSERT INTO `teacher` (`id`, `teacher_name`, `teacher_code`, `password`) VALUES
+	(1, 'John Smith', 'JS-001', 'lcc1947'),
+	(2, 'Jade Smith', 'JS-002', 'lcc1947'),
+	(3, 'Allain Sarmiento', 'AS-003', 'lcc1947'),
+	(4, 'Arthur Doyle', 'AD-004', 'lcc1947'),
+	(5, 'Snape Severus', 'SS-005', 'lcc1947'),
+	(6, ' Bridgett Mychelle', 'BM-006', 'lcc1947'),
+	(8, 'Joseph Levi', 'JL-007', 'lcc1947');
 
 -- Dumping structure for table school.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'admin123',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

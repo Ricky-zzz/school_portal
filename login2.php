@@ -6,8 +6,9 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <title>Student Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/brite/bootstrap.min.css" rel="stylesheet">
+    <title>Teacher Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/simplex/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -15,7 +16,7 @@ session_start();
         <div class="col-md-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4">Student Login</h3>
+                    <h3 class="card-title text-center mb-4">Teacher Login</h3>
 
                     <?php if (!empty($_SESSION["error"])): ?>
                         <div class="alert alert-danger">
@@ -26,8 +27,8 @@ session_start();
 
                     <form action="sql/login_actions.php" method="POST">
                         <div class="mb-3">
-                            <label for="student_number" class="form-label">Student Number</label>
-                            <input type="text" id="student_number" name="student_number" class="form-control" autofocus required>
+                            <label for="student_number" class="form-label">Teacher Code</label>
+                            <input type="text" id="tcode" name="teacher_code" class="form-control" autofocus required>
                         </div>
 
                         <div class="mb-3">
@@ -41,10 +42,9 @@ session_start();
                     </form>
                 </div>
                 <div class="d-flex  justify-content-between">
-                    <a href="login.php" class="p-2 mx-3"><small>Admin Login</small></a>
-                    <a href="login2.php" class="p-2 mx-3"><small>Teacher Login</small></a>
-                </div>
-
+             <a href="login.php" class="p-2 mx-3"><small>Admin Login</small></a>
+             <a href="index.php" class="p-2 mx-3"><small>Student Login</small></a>
+             </div>
             </div>
         </div>
     </div>

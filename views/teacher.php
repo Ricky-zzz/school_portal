@@ -10,7 +10,7 @@ $teachers = $pdo->query("SELECT * FROM teacher")->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Teachers</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/zephyr/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -40,7 +40,7 @@ $teachers = $pdo->query("SELECT * FROM teacher")->fetchAll(PDO::FETCH_ASSOC);
         include "../partials/balert.php";
         ?>
 
-        <!-- Add Course -->
+        <!-- Add  -->
         <form class="row g-3" action="../sql/teacher_actions.php" method="POST">
             <div class="col-md-6">
                 <input type="text" class="form-control" name="addteacher" autofocus required placeholder="Profesor's Name">
@@ -56,6 +56,7 @@ $teachers = $pdo->query("SELECT * FROM teacher")->fetchAll(PDO::FETCH_ASSOC);
                 <thead>
                     <tr class="table-dark">
                         <th>Teacher Name</th>
+                        <th>Teacher Code</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -63,6 +64,7 @@ $teachers = $pdo->query("SELECT * FROM teacher")->fetchAll(PDO::FETCH_ASSOC);
                     <?php foreach ($teachers as $row): ?>
                         <tr>
                             <td><?= htmlspecialchars($row['teacher_name']) ?></td>
+                            <td><?= htmlspecialchars($row['teacher_code']) ?></td>
                             <td>
                                 <button class="btn btn-warning btn-sm"
                                     @click="teacher=<?= htmlspecialchars(json_encode($row)) ?>; editModal=true">
