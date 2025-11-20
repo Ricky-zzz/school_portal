@@ -27,7 +27,7 @@ $teacher_code = $_SESSION['teacher_code'] ?? 'N/A';
     <?php endif; ?>
 
 
-    <div class="menu-container bg-light rounded shadow p-2 mt-5" style="min-width:400px;">
+    <div class="menu-container bg-light rounded shadow p-2 mt-5" style="min-width:600px; max-width:900px;">
         <div class="menu-header bg-dark text-white text-center w-100 py-3 rounded-top my-2">
             <h4 class="fw-bold mb-1"><?= htmlspecialchars(strtoupper($teacher_name)) ?></h4>
             <p class="fw-bold mb-0"><?= htmlspecialchars($teacher_code) ?></p>
